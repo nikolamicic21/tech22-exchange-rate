@@ -1,0 +1,24 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Exchange Rate</title>
+</head>
+<body>
+<form action="/convert" method="post">
+    <div>
+        <label for="from">Convert from:</label>
+        <input id="from" type="text" name="from" />
+    </div>
+    <div>
+        <label for="to">Convert to:</label>
+        <input id="to" type="text" name="to" />
+    </div>
+    <div>
+        <label for="amount">Amount:</label>
+        <input id="amount" type="text" name="amount" />
+    </div>
+    <input type="submit" value="Convert">
+</form>
+</body>
+</html>
