@@ -1,7 +1,6 @@
 package com.example
 
 import com.example.plugins.configureRouting
-import com.example.plugins.configureSerialization
 import com.example.plugins.configureTemplating
 import com.example.plugins.getClient
 import io.ktor.server.application.*
@@ -22,6 +21,5 @@ fun Application.module() {
     val convertService = ConvertServiceImpl(client)
 
     configureTemplating()
-    configureSerialization()
     configureRouting(convertService)
 }
