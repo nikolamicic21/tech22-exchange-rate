@@ -1,5 +1,7 @@
 package com.example
 
+import com.example.plugins.logger
+import io.ktor.serialization.*
 import io.ktor.server.application.*
 import io.ktor.server.plugins.*
 import io.ktor.server.request.*
@@ -59,7 +61,8 @@ suspend fun PipelineContext<Unit, ApplicationCall>.parseFormParameters(): Conver
             amount,
         )
     } catch (e: ContentTransformationException) {
-        throw IllegalArgumentException("form parameters cannot be received")
+        logger.error("form parameters not provided", e)
+        throw IllegalArgumentException("form parameters not provided")
     } catch (e: MissingRequestParameterException) {
         throw IllegalArgumentException("${e.parameterName} cannot be empty")
     } catch (e: NumberFormatException) {
